@@ -48,6 +48,11 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        $notifications = [
+            'message' => 'Logout Berhasil',
+            'alert-type' => 'info'
+        ];
+
+        return redirect('/')->with($notifications);
     }
 }
